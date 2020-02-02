@@ -14,6 +14,7 @@ public class BJack{
         }
         System.out.println(theDeck.size());
         System.out.println("lmao");
+        System.out.println("word up");
                 
     }
     public static void intro(){
