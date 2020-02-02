@@ -13,8 +13,7 @@ public class BJack{
             System.out.println(" The Card is: " + x.getcard() + "   " + "The suit is: " + x.getsuit());
         }
         System.out.println(theDeck.size());
-        System.out.println("lmao");
-        System.out.println("word up");
+        
                 
     }
     public static void intro(){

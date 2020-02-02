@@ -6,8 +6,6 @@ public class Player{
     
     public void addcard1(Card card1){  
         cards.add(card1);
-        
-
     }
     public void addcard2(Card card2){
         cards.add(card2);
@@ -23,6 +21,19 @@ public class Player{
             card2 = 10;
         }
         int total = card1 + card2;
+        if(card1 == 1 && total + 11 < 21){
+            card1 = 11;
+        }
+        else{
+            card1 = 1;
+        }
+        if(card2 == 1 && total + 11 < 21){
+            card2 = 11;
+        }
+        else{
+            card2 = 1;
+        }
+        total = card1 + card2;
         
         return total;
     }
