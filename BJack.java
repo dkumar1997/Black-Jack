@@ -6,15 +6,43 @@ import java.util.Collections;
 public class BJack{
     public static void main(String[] args) {
         intro();
-        Deck newDeck = new Deck();
-        ArrayList<Card> theDeck = newDeck.builddeck();
-        Collections.shuffle(theDeck);
-        for(Card x: theDeck){
-            System.out.println(" The Card is: " + x.getcard() + "   " + "The suit is: " + x.getsuit());
+        ArrayList<Card> fulldeck = buildmeadeck(); 
+        System.out.println(fulldeck.get(0).getcard());
+        Player dealer = new Player("DEALER", 1000000000);
+        Player bob = new Player("bob", 500);
+        while(bob.getcash() > 0){
+            if(fulldeck.isEmpty()){
+                fulldeck = buildmeadeck();
+            }
+            dealer.addcard1(fulldeck.get(0));
+            fulldeck.remove(0);
+            bob.addcard1(fulldeck.get(0));
+            fulldeck.remove(0);
+            dealer.addcard2(fulldeck.get(0));
+            fulldeck.remove(0);
+            bob.addcard2(fulldeck.get(0));
+            fulldeck.remove(0);
+
+            if(dealer.getaddedvalue() > bob.getaddedvalue()){
+                bob.setcash(bob.getcash() - 50 );
+                dealer.setcash(dealer.getcash()+50);
+                System.out.println("You lose");
+            }
+            else{
+                bob.setcash(bob.getcash() + 50 );
+                dealer.setcash(dealer.getcash() -50);
+                System.out.println("You win");
+                
+            }
+            
+            
+            
+
+
+
+
         }
-        System.out.println(theDeck.size());
-        System.out.println("lmao");
-        System.out.println("word up");
+
                 
     }
     public static void intro(){
@@ -23,4 +51,11 @@ public class BJack{
         System.out.println("Here are your two cards: ");
         
     }
+    public static ArrayList<Card> buildmeadeck(){ 
+        Deck newDeck = new Deck();
+        ArrayList<Card> theDeck = newDeck.builddeck();
+        Collections.shuffle(theDeck);
+        return theDeck;
+    }
+   
 }
