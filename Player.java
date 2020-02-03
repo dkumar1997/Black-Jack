@@ -3,9 +3,11 @@ public class Player{
     private String name;
     private int cash;
     private ArrayList<Card> cards;
+    
     public Player(String name, int cash){
         this.name = name;
         this.cash = cash;
+        cards = new ArrayList<Card>();
     }
     public void addcard1(Card card1){  
         cards.add(card1);

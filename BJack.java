@@ -22,8 +22,6 @@ public class BJack{
             fulldeck.remove(0);
             bob.addcard2(fulldeck.get(0));
             fulldeck.remove(0);
-            System.out.println("Your cards are: " + bob.getcard1().getcard() + " " + bob.getcard1().getsuit() + bob.getcard2().getcard()+ " "  + bob.getcard2().getsuit());
-            System.out.println("Dealers cards are: " + dealer.getcard1().getcard() + " " + dealer.getcard1().getsuit() + dealer.getcard2().getcard()+ " "  +  dealer.getcard2().getsuit());
 
             if(dealer.getaddedvalue() > bob.getaddedvalue()){
                 bob.setcash(bob.getcash() - 50 );
