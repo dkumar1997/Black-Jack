@@ -7,21 +7,24 @@ public class BJack{
     public static void main(String[] args) {
         intro();
         ArrayList<Card> fulldeck = buildmeadeck(); 
-        System.out.println(fulldeck.get(0).getcard());
+        
         Player dealer = new Player("DEALER", 1000000000);
-        Player bob = new Player("bob", 500);
+        Player bob = new Player("bob", 50);
         while(bob.getcash() > 0){
-            if(fulldeck.isEmpty()){
-                fulldeck = buildmeadeck();
+
+            for(int i = 0; i < 2; i++){
+                dealer.addcard(fulldeck.get(0));
+                
+                fulldeck.remove(0);
+                bob.addcard(fulldeck.get(0));
+                fulldeck.remove(0);
             }
-            dealer.addcard1(fulldeck.get(0));
-            fulldeck.remove(0);
-            bob.addcard1(fulldeck.get(0));
-            fulldeck.remove(0);
-            dealer.addcard2(fulldeck.get(0));
-            fulldeck.remove(0);
-            bob.addcard2(fulldeck.get(0));
-            fulldeck.remove(0);
+            System.out.println("dealer cards: "); 
+            dealer.printcards();
+            System.out.println("bobs cards: ");
+            bob.printcards();
+            System.out.println(bob.getaddedvalue());
+
 
             if(dealer.getaddedvalue() > bob.getaddedvalue()){
                 bob.setcash(bob.getcash() - 50 );
@@ -34,6 +37,8 @@ public class BJack{
                 System.out.println("You win");
                 
             }
+            dealer.emptyhand();
+            bob.emptyhand();
             
             
             
