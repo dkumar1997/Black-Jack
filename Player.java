@@ -10,7 +10,7 @@ public class Player{
         cards = new ArrayList<Card>();
     }
     public void addcard(Card card){  
-        cards.add(card);
+        cards.add(new Card(card));
     }
 
     public int getaddedvalue(){
